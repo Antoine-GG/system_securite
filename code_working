@@ -1,0 +1,172 @@
+import machine
+import time
+password = [1, 2, 3, 4]
+Userpassword = []
+buttonflag = 0
+fenetre_flag1 = 0
+fenetre_flag2 = 0
+fenetre_flag3 = 0
+
+button0 = machine.Pin(0, machine.Pin.IN, machine.Pin.PULL_DOWN)
+button1 = machine.Pin(1, machine.Pin.IN, machine.Pin.PULL_DOWN)
+button2 = machine.Pin(2, machine.Pin.IN, machine.Pin.PULL_DOWN)
+button3 = machine.Pin(3, machine.Pin.IN, machine.Pin.PULL_DOWN)
+button4 = machine.Pin(4, machine.Pin.IN, machine.Pin.PULL_DOWN)
+button5 = machine.Pin(5, machine.Pin.IN, machine.Pin.PULL_DOWN)
+button6 = machine.Pin(6, machine.Pin.IN, machine.Pin.PULL_DOWN)
+button7 = machine.Pin(7, machine.Pin.IN, machine.Pin.PULL_DOWN)
+button8 = machine.Pin(8, machine.Pin.IN, machine.Pin.PULL_DOWN)
+button9 = machine.Pin(9, machine.Pin.IN, machine.Pin.PULL_DOWN)
+button10 = machine.Pin(10, machine.Pin.IN, machine.Pin.PULL_DOWN)
+button11 = machine.Pin(11, machine.Pin.IN, machine.Pin.PULL_DOWN)
+fenetre1 = machine.Pin(13, machine.Pin.IN, machine.Pin.PULL_DOWN)
+fenetre2 = machine.Pin(14, machine.Pin.IN, machine.Pin.PULL_DOWN)
+fenetre3 = machine.Pin(15, machine.Pin.IN, machine.Pin.PULL_DOWN)
+
+output_pin = machine.Pin(12, machine.Pin.OUT)
+LIGHT_pin = machine.Pin(16, machine.Pin.OUT)
+
+
+while True:
+    if button0.value() == 1 and buttonflag == 0:
+        while button0.value() == 1:
+            print("button *")
+            output_pin.value(1)  # Set output pin to high to open door
+            time.sleep(0.2)
+            output_pin.value(0)
+    if button1.value() and buttonflag == 0:
+        print("button 7")
+        Userpassword.append(7)
+        print(Userpassword)
+        buttonflag = 1
+    if button2.value() and buttonflag == 0:
+        print("button 4")
+        Userpassword.append(4)
+        print(Userpassword)
+        buttonflag = 1
+    if button3.value() and buttonflag == 0:
+        print("button 1")
+        Userpassword.append(1)
+        print(Userpassword)
+        buttonflag = 1
+    if button4.value() and buttonflag == 0:
+        print("button 0")
+        Userpassword.append(0)
+        print(Userpassword)
+        buttonflag = 1
+    if button5.value() and buttonflag == 0:
+        print("button 8")
+        Userpassword.append(8)
+        print(Userpassword)
+        buttonflag = 1
+    if button6.value() and buttonflag == 0:
+        print("button 5")
+        Userpassword.append(5)
+        print(Userpassword)
+        buttonflag = 1
+    if button7.value() and buttonflag == 0:
+        print("button 2")
+        Userpassword.append(2)
+        print(Userpassword)
+        buttonflag = 1
+    if button8.value() and buttonflag == 0:
+        print("button #")
+        Userpassword = []
+        buttonflag = 1
+    if button9.value() and buttonflag == 0:
+        print("button 9")
+        Userpassword.append(9)
+        print(Userpassword)
+        buttonflag = 1
+    if button10.value() and buttonflag == 0:
+        print("button 6")
+        Userpassword.append(6)
+        print(Userpassword)
+        buttonflag = 1
+    if button11.value() and buttonflag == 0:
+        print("button 3")
+        Userpassword.append(3)
+        print(Userpassword)
+        buttonflag = 1
+    if (button0.value() == 0 and button1.value() == 0 and button2.value() == 0 and button3.value() == 0 and button4.value() == 0 and button5.value() == 0 and button6.value() == 0 and button7.value() == 0 and button8.value() == 0 and button9.value() == 0 and button10.value() == 0 and button11.value() == 0): 
+        buttonflag = 0
+        LIGHT_pin.value(0)
+        
+    if fenetre1.value() != 1 and fenetre_flag1 == 0:
+        if fenetre_flag1 == 0:
+            print("port 1 ouverte")
+            fenetre_flag1 = 1
+            LIGHT_pin.value(1)
+            time.sleep(0.1)
+            LIGHT_pin.value(0)
+            time.sleep(0.1)
+            LIGHT_pin.value(1)
+            time.sleep(0.1)
+            LIGHT_pin.value(0)
+            time.sleep(0.1)
+            LIGHT_pin.value(1)
+            time.sleep(0.1)
+            LIGHT_pin.value(0)
+            time.sleep(0.1)
+            
+    if fenetre2.value() != 1 and fenetre_flag2 == 0:
+        if fenetre_flag2 == 0:
+            print("fenetre 1 ouverte")
+            fenetre_flag2 = 1
+            LIGHT_pin.value(1)
+            time.sleep(0.1)
+            LIGHT_pin.value(0)
+            time.sleep(0.1)
+            LIGHT_pin.value(1)
+            time.sleep(0.1)
+            LIGHT_pin.value(0)
+            time.sleep(0.1)
+            LIGHT_pin.value(1)
+            time.sleep(0.1)
+            LIGHT_pin.value(0)
+            time.sleep(0.1)
+            
+    if fenetre3.value() != 1 and fenetre_flag3 == 0:
+        if fenetre_flag3 == 0:
+            print("fenetre 2 ouverte")
+            fenetre_flag3 = 1
+            LIGHT_pin.value(1)
+            time.sleep(0.1)
+            LIGHT_pin.value(0)
+            time.sleep(0.1)
+            LIGHT_pin.value(1)
+            time.sleep(0.1)
+            LIGHT_pin.value(0)
+            time.sleep(0.1)
+            LIGHT_pin.value(1)
+            time.sleep(0.1)
+            LIGHT_pin.value(0)
+            time.sleep(0.1)
+            
+    #this is to not always display the windows as open
+    if fenetre1.value() == 1 and fenetre_flag1 == 1:
+        fenetre_flag1 = 0
+        print("port 1 fermer")
+        
+    if fenetre2.value() == 1 and fenetre_flag2 == 1:
+        fenetre_flag2 = 0
+        print("fenetre 1 fermer")
+        
+    if fenetre3.value() == 1 and fenetre_flag3 == 1:
+        fenetre_flag3 = 0
+        print("fenetre 2 fermer")
+    
+    else:
+        output_pin.value(0)
+    if len(Userpassword) == len(password):
+        if Userpassword == password:
+            output_pin.value(1)  # Set output pin to high to open door
+            time.sleep(1)
+            output_pin.value(0)
+            Userpassword = []
+        else:
+            LIGHT_pin.value(1)
+            Userpassword = []
+        
+    time.sleep(0.2)
+    
