@@ -1,0 +1,64 @@
+import machine
+import time
+
+password = [1, 2, 3, 4]
+Userpassword = []
+buttonflag = 0
+fenetre_flag1 = 0
+fenetre_flag2 = 0
+fenetre_flag3 = 0
+
+# Define button pins
+button_pins = [
+    machine.Pin(0, machine.Pin.IN, machine.Pin.PULL_DOWN),
+    machine.Pin(1, machine.Pin.IN, machine.Pin.PULL_DOWN),
+    machine.Pin(2, machine.Pin.IN, machine.Pin.PULL_DOWN),
+    machine.Pin(3, machine.Pin.IN, machine.Pin.PULL_DOWN),
+    machine.Pin(4, machine.Pin.IN, machine.Pin.PULL_DOWN),
+    machine.Pin(5, machine.Pin.IN, machine.Pin.PULL_DOWN),
+    machine.Pin(6, machine.Pin.IN, machine.Pin.PULL_DOWN),
+    machine.Pin(7, machine.Pin.IN, machine.Pin.PULL_DOWN),
+    machine.Pin(8, machine.Pin.IN, machine.Pin.PULL_DOWN),
+    machine.Pin(9, machine.Pin.IN, machine.Pin.PULL_DOWN),
+    machine.Pin(10, machine.Pin.IN, machine.Pin.PULL_DOWN),
+    machine.Pin(11, machine.Pin.IN, machine.Pin.PULL_DOWN)
+]
+
+output_pin = machine.Pin(12, machine.Pin.OUT)
+LIGHT_pin = machine.Pin(16, machine.Pin.OUT)
+
+# Function to read a button with release detection
+def read_button(pin):
+    state = 0
+    while True:
+        if pin.value() == 1:
+            if state == 0:
+                state = 1
+                return True
+        else:
+            state = 0
+            return False
+        time.sleep(0.05)
+
+while True:
+    for i, button in enumerate(button_pins):
+        #print(button_pins[i])
+        if read_button(button):
+            print(f"button {i}")
+            Userpassword.append(i)
+            print(Userpassword)
+    time.sleep(0.1)
+    
+    if len(Userpassword) == len(password):
+        if Userpassword == password:
+            output_pin.value(1)  # Set output pin to high to open door
+            time.sleep(1)
+            output_pin.value(0)
+            Userpassword = []
+        else:
+            LIGHT_pin.value(1)
+            Userpassword = []
+        
+    time.sleep(0.2)
+    
+    
