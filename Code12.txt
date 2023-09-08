@@ -20,9 +20,9 @@ button_pins = [
     machine.Pin(3, machine.Pin.IN, machine.Pin.PULL_DOWN), #7
     machine.Pin(7, machine.Pin.IN, machine.Pin.PULL_DOWN), #8
     machine.Pin(11, machine.Pin.IN, machine.Pin.PULL_DOWN), #9
-    machine.Pin(2, machine.Pin.IN, machine.Pin.PULL_DOWN), #10
+    machine.Pin(2, machine.Pin.IN, machine.Pin.PULL_DOWN), #10 (*)
     machine.Pin(6, machine.Pin.IN, machine.Pin.PULL_DOWN), #11
-    machine.Pin(10, machine.Pin.IN, machine.Pin.PULL_DOWN), #12
+    machine.Pin(10, machine.Pin.IN, machine.Pin.PULL_DOWN), #12 (#)
 ]
 
 output_pin = machine.Pin(12, machine.Pin.OUT)
