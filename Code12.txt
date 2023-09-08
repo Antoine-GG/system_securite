@@ -10,18 +10,19 @@ fenetre_flag3 = 0
 
 # Define button pins
 button_pins = [
-    machine.Pin(0, machine.Pin.IN, machine.Pin.PULL_DOWN),
-    machine.Pin(1, machine.Pin.IN, machine.Pin.PULL_DOWN),
-    machine.Pin(2, machine.Pin.IN, machine.Pin.PULL_DOWN),
-    machine.Pin(3, machine.Pin.IN, machine.Pin.PULL_DOWN),
-    machine.Pin(4, machine.Pin.IN, machine.Pin.PULL_DOWN),
-    machine.Pin(5, machine.Pin.IN, machine.Pin.PULL_DOWN),
-    machine.Pin(6, machine.Pin.IN, machine.Pin.PULL_DOWN),
-    machine.Pin(7, machine.Pin.IN, machine.Pin.PULL_DOWN),
-    machine.Pin(8, machine.Pin.IN, machine.Pin.PULL_DOWN),
-    machine.Pin(9, machine.Pin.IN, machine.Pin.PULL_DOWN),
-    machine.Pin(10, machine.Pin.IN, machine.Pin.PULL_DOWN),
-    machine.Pin(11, machine.Pin.IN, machine.Pin.PULL_DOWN)
+    
+    machine.Pin(5, machine.Pin.IN, machine.Pin.PULL_DOWN), #1
+    machine.Pin(9, machine.Pin.IN, machine.Pin.PULL_DOWN), #2
+    machine.Pin(13, machine.Pin.IN, machine.Pin.PULL_DOWN), #3
+    machine.Pin(4, machine.Pin.IN, machine.Pin.PULL_DOWN), #4
+    machine.Pin(8, machine.Pin.IN, machine.Pin.PULL_DOWN), #5
+    machine.Pin(12, machine.Pin.IN, machine.Pin.PULL_DOWN), #6
+    machine.Pin(3, machine.Pin.IN, machine.Pin.PULL_DOWN), #7
+    machine.Pin(7, machine.Pin.IN, machine.Pin.PULL_DOWN), #8
+    machine.Pin(11, machine.Pin.IN, machine.Pin.PULL_DOWN), #9
+    machine.Pin(2, machine.Pin.IN, machine.Pin.PULL_DOWN), #10
+    machine.Pin(6, machine.Pin.IN, machine.Pin.PULL_DOWN), #11
+    machine.Pin(10, machine.Pin.IN, machine.Pin.PULL_DOWN), #12
 ]
 
 output_pin = machine.Pin(12, machine.Pin.OUT)
@@ -44,6 +45,7 @@ while True:
     for i, button in enumerate(button_pins):
         #print(button_pins[i])
         if read_button(button):
+            i = i + 1
             print(f"button {i}")
             Userpassword.append(i)
             print(Userpassword)
@@ -51,7 +53,7 @@ while True:
     
     if len(Userpassword) == len(password):
         if Userpassword == password:
-            output_pin.value(1)  # Set output pin to high to open door
+            output_pin.value(1)  # Set output pin to high to open doors
             time.sleep(1)
             output_pin.value(0)
             Userpassword = []
@@ -62,3 +64,5 @@ while True:
     time.sleep(0.2)
     
     
+
+
