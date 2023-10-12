@@ -30,6 +30,7 @@
 
 #define BUF_LEN         0x100
 
+// Repeat(Print) info received from slave until lenght is = 0
 void printbuf(uint8_t buf[], size_t len) {
     int i;
     for (i = 0; i < len; ++i) {
