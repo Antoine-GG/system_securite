@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ESP IOT DASHBOARD</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" href="favicon.png">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="topnav">
+            <h1>HOUSE MASTER</h1>
+            <!--input type="text" data-role="keypad" placeholder="Enter pin"-->
+        </div>
+        <div class="content">
+            <div class="card-grid">
+                <div class="card">
+                    <p class="card-title"><i class="fas fa-thermometer-threequarters" style="color:#9900ff;"></i> Door State</p>
+                    <p class="reading"><span id="Door_State"></span></p>
+                </div>
+            </div>
+            <div class="card-grid">
+                <div class="card">
+                    <h2>Button State</h2>
+                    <p class="state">State: <span id="state">%STATE%</span></p>
+                    <p><button id="button" class="button">Toggle</button></p>
+
+                    <h3>KeyPad</h3>
+                    <p>Input password here:</p>
+                    
+                    <style>
+        /* Center the keypad horizontally and vertically */
+        
+
+        /* Add some basic styling to the keypad */
+        .keypad {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+        }
+
+        /* Style the individual keys */
+        .key {
+            width: 100px;
+            height: 50px;
+            background-color: #e0e0e0;
+            border: 1px solid #ccc;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+        }
+
+        /* Add hover effect */
+        .key:hover {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="keypad">
+        <!-- Create the keypad layout -->
+        <div class="key">1</div>
+        <div class="key">2</div>
+        <div class="key">3</div>
+        <div class="key">4</div>
+        <div class="key">5</div>
+        <div class="key">6</div>
+        <div class="key">7</div>
+        <div class="key">8</div>
+        <div class="key">9</div>
+        <div class="key">*</div>
+        <div class="key">0</div>
+        <div class="key">#</div>
+                </div>
+            </div>    
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
+
